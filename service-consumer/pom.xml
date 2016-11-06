@@ -11,13 +11,22 @@
 
     <groupId>cz.meza.microservices</groupId>
     <artifactId>service-consumer</artifactId>
-
+    <packaging>war</packaging>
     <build>
-        <finalName>service-consumer</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
+               <configuration>
+                    <mainClass>cz.meza.microservice.service.consumer.Bootstrap</mainClass>
+                </configuration>
                 <version>${version.wildfly.swarm}</version>
                 <executions>
                     <execution>
@@ -29,5 +38,29 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--<build>-->
+    <!--    <finalName>service-consumer</finalName>
+
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>wildfly-swarm-plugin</artifactId>
+                <configuration>
+                    <mainClass>cz.meza.microservice.service.consumer.Bootstrap</mainClass>
+                </configuration>
+                <version>${version.wildfly.swarm}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>-->
 
 </project>
