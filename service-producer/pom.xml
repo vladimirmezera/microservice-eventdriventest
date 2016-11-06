@@ -12,5 +12,21 @@
     <groupId>cz.meza.microservices</groupId>
     <artifactId>service-producer</artifactId>
 
-
+    <build>
+        <finalName>service-producer</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>wildfly-swarm-plugin</artifactId>
+                <version>${version.wildfly.swarm}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
